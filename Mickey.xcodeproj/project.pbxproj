@@ -12,6 +12,7 @@
 		305376C6204DB0A700F8622C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305376C4204DB0A700F8622C /* Main.storyboard */; };
 		305376C8204DB0A700F8622C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 305376C7204DB0A700F8622C /* Assets.xcassets */; };
 		305376CB204DB0A700F8622C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 305376C9204DB0A700F8622C /* LaunchScreen.storyboard */; };
+		305376D3204DB0E200F8622C /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305376D2204DB0E200F8622C /* Audio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		305376C7204DB0A700F8622C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		305376CA204DB0A700F8622C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		305376CC204DB0A700F8622C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		305376D2204DB0E200F8622C /* Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				305376C0204DB0A700F8622C /* AppDelegate.swift */,
 				305376C2204DB0A700F8622C /* ViewController.swift */,
+				305376D2204DB0E200F8622C /* Audio.swift */,
 				305376C4204DB0A700F8622C /* Main.storyboard */,
 				305376C7204DB0A700F8622C /* Assets.xcassets */,
 				305376C9204DB0A700F8622C /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305376D3204DB0E200F8622C /* Audio.swift in Sources */,
 				305376C3204DB0A700F8622C /* ViewController.swift in Sources */,
 				305376C1204DB0A700F8622C /* AppDelegate.swift in Sources */,
 			);
