@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
-    var audio = Audio()
-
+    let audioEngine = AVAudioEngine()
+    
+    func setupAudioEngine() {
+        let input = audioEngine.inputNode
+        let output = audioEngine.outputNode
+        let format = input.inputFormat(forBus: 0)
+        
+        // Connect nodes
+        audioEngine.connect(input, to: output, format: format)
+    }
+    
     @IBAction func listenButtonPressed(_ sender: UIButton) {
-        do {
-            try audio.record()
-        } catch {
-            alert(title: "Error", message: error.localizedDescription)
+        if audioEngine.isRunning {
+            audioEngine.stop()
+        } else {
+            do {
+                try audioEngine.start()
+            } catch {
+                alert(title: "Error", message: error.localizedDescription)
+            }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        do {
-            try audio.prepareAudioSession()
-            try audio.prepareAudioRecorder(url: getDocumentsDirectory().appendingPathComponent("recording.m4a", isDirectory: false))
-            audio.prepareProximityMonitoring()
-        } catch {
-            alert(title: "Error", message: error.localizedDescription)
-        }
+        setupAudioEngine()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +50,6 @@ class ViewController: UIViewController {
         let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
         alertController.addAction(defaultAction)
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
     }
 }
 
