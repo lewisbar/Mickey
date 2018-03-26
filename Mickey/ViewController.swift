@@ -7,16 +7,36 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
+    let audioEngine = AVAudioEngine()
+    
+    func setupAudioEngine() {
+        let input = audioEngine.inputNode
+        let output = audioEngine.outputNode
+        let format = input.inputFormat(forBus: 0)
+        
+        // Connect nodes
+        audioEngine.connect(input, to: output, format: format)
+    }
+    
     @IBAction func listenButtonPressed(_ sender: UIButton) {
-
+        if audioEngine.isRunning {
+            audioEngine.stop()
+        } else {
+            do {
+                try audioEngine.start()
+            } catch {
+                alert(title: "Error", message: error.localizedDescription)
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupAudioEngine()
     }
 
     override func didReceiveMemoryWarning() {
