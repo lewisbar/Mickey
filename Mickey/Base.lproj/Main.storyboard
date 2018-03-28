@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EJ-Av-d9p">
-                                <rect key="frame" x="166" y="318" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EJ-Av-d9p">
+                                <rect key="frame" x="157" y="303" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Listen"/>
+                                <state key="normal" image="Mickey Icon"/>
                                 <connections>
                                     <action selector="listenButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z9Q-7m-9Iz"/>
                                 </connections>
@@ -35,4 +35,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mickey Icon" width="60" height="60"/>
+    </resources>
 </document>
