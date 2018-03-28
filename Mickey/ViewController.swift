@@ -11,6 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var listenButton: UIButton!
     let audioEngine = AVAudioEngine()
     
     func setupAudioEngine() {
@@ -25,9 +26,11 @@ class ViewController: UIViewController {
     @IBAction func listenButtonPressed(_ sender: UIButton) {
         if audioEngine.isRunning {
             audioEngine.stop()
+            listenButton.setImage(#imageLiteral(resourceName: "Mickey Icon"), for: .normal)
         } else {
             do {
                 try audioEngine.start()
+                listenButton.setImage(#imageLiteral(resourceName: "Mickey Icon Active"), for: .normal)
             } catch {
                 alert(title: "Error", message: error.localizedDescription)
             }
