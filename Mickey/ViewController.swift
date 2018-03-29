@@ -13,6 +13,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var listenButton: UIButton!
     let audioEngine = AVAudioEngine()
+    var audioSession: AVAudioSession?
+    
+    func setupAudioSession() throws {
+        var options: AVAudioSessionCategoryOptions = [.allowBluetooth]
+        if #available(iOS 10.0, *) {
+            options.insert([.allowAirPlay, .allowBluetoothA2DP])
+        }
+        
+        audioSession = AVAudioSession.sharedInstance()
+        try audioSession?.setCategory(AVAudioSessionCategoryPlayAndRecord, with: options)
+        try audioSession?.setActive(true)
+//        audioSession?.requestRecordPermission() { [unowned self] allowed in
+//            self.isRecordingAllowed = allowed
+//        }
+    }
     
     func setupAudioEngine() {
         let input = audioEngine.inputNode
@@ -55,6 +70,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudioEngine()
+        do {
+            try setupAudioSession()
+        } catch {
+            alert(title: "Error", message: error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
