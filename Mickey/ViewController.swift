@@ -46,9 +46,6 @@ class ViewController: UIViewController {
     func updateListenIcon() {
         if audioEngine.isRunning, isOutputEnabled {
             listenButton.setImage(#imageLiteral(resourceName: "Mickey Icon Active"), for: .normal)
-//            print(audioEngine.outputNode.outputFormat(forBus: 0).channelCount)
-//            print(audioEngine.outputNode.outputFormat(forBus: 0).sampleRate)
-//            print(audioEngine.mainMixerNode)
         } else {
             listenButton.setImage(#imageLiteral(resourceName: "Mickey Icon"), for: .normal)
         }
