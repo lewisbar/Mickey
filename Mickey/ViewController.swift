@@ -16,13 +16,14 @@ class ViewController: UIViewController {
     var audioSession: AVAudioSession?
     
     func setupAudioSession() throws {
-        var options: AVAudioSessionCategoryOptions = [.mixWithOthers]
+        var options: AVAudioSession.CategoryOptions = [.mixWithOthers]
         if #available(iOS 10.0, *) {
             options.insert([.allowAirPlay, .allowBluetoothA2DP])
         }
         
         audioSession = AVAudioSession.sharedInstance()
-        try audioSession?.setCategory(AVAudioSessionCategoryPlayAndRecord, with: options)
+        //try audioSession?.setCategory(AVAudioSession.Category.playAndRecord, with: options)
+        try audioSession?.setCategory(.playAndRecord, mode: .default, options: options)
         try audioSession?.setActive(true)
         //try audioSession?.setPreferredIOBufferDuration(0.005)
         print(audioSession?.inputLatency ?? 0)
