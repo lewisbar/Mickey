@@ -22,7 +22,6 @@ class ViewController: UIViewController {
         }
         
         audioSession = AVAudioSession.sharedInstance()
-        //try audioSession?.setCategory(AVAudioSession.Category.playAndRecord, with: options)
         try audioSession?.setCategory(.playAndRecord, mode: .default, options: options)
         try audioSession?.setActive(true)
         //try audioSession?.setPreferredIOBufferDuration(0.005)
